@@ -53,7 +53,9 @@ public class Voucher implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
     private java.util.Date rejectDate;
 
-
+    @Column(name = "created_at", columnDefinition = " timestamp default now()")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
     @Column(name = "NARRATION", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String narration;
     @Column(name = "CHEQUE_NO")

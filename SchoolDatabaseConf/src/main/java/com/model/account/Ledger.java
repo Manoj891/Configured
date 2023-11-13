@@ -199,6 +199,10 @@ public class Ledger implements Serializable {
         this.bankReconciliationDate = bankReconciliationDate;
     }
 
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
     @Override
     public String toString() {
         return "{" + "id=" + id + ", acCode=" + acCode + ", voucherNo=" + voucherNo + ", drAmt=" + drAmt + ", crAmt=" + crAmt + ", particular=" + particular + ", feeReceiptNo=" + feeReceiptNo + ", enterDate=" + enterDate + ", enterBy=" + enterBy + ", postDate=" + postDate + ", postBy=" + postBy + ", chequeNo=" + chequeNo + ", narration=" + narration + ", chartOfAccount=" + chartOfAccount + ", voucher=" + voucher + ", voucherDetail=" + voucherDetail + '}';
