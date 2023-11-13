@@ -105,6 +105,8 @@ public class OrganizationMaster implements java.io.Serializable {
 
     @Column(name = "ABOUT_SCHOOL", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String aboutSchool;
+    @Column(name = "aakashsms", insertable = false, updatable = false)
+    private String aakashsms;
 
     public Long getId() {
         return id;
