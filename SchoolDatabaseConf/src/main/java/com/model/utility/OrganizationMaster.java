@@ -21,6 +21,8 @@ public class OrganizationMaster implements java.io.Serializable {
     private Long id;
     @Column(name = "NAME", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String name;
+    @Column(name = "organization_name", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
+    private String organizationName;
     @Column(name = "ADDRESS", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String address;
     @Column(name = "PROVINCE")
