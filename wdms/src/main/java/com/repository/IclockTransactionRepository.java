@@ -1,12 +1,12 @@
-package com.repository.utility;
+package com.repository;
 
-import com.model.utility.IclockTransaction;
+import com.mode.IclockTransaction;
 
 import java.util.List;
 import java.util.Map;
 import javax.transaction.Transactional;
 
-import com.model.utility.IclockTransactionRes;
+import com.mode.IclockTransactionRes;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

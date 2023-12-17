@@ -1,4 +1,4 @@
-package com.model.utility;
+package com.mode;
 
 import lombok.*;
 

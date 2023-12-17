@@ -1,6 +1,6 @@
-package com.repository.utility;
+package com.repository;
 
-import com.model.utility.ServerUrl;
+import com.mode.ServerUrl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

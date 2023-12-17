@@ -1,9 +1,9 @@
-package com.services.utility;
+package com.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.model.utility.PushData;
-import com.repository.utility.IclockTransactionRepository;
-import com.repository.utility.ServerUrlRepository;
+import com.mode.PushData;
+import com.repository.IclockTransactionRepository;
+import com.repository.ServerUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,7 +17,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class IclockTransactionServicesImp {
