@@ -1,20 +1,13 @@
 package com;
 
-import com.config.JWTToken;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.Calendar;
-import java.util.Date;
-import javax.servlet.MultipartConfigElement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.util.unit.DataSize;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class SpringBootWebApplication extends SpringBootServletInitializer {
 
     @Override
@@ -22,18 +15,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
         return application.sources(SpringBootWebApplication.class);
     }
 
-    public static void main(String[] args) throws Exception {
-        
+    public static void main(String[] args) {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
-
-    @Bean
-    public MultipartConfigElement multipartConfigElement() {
-        MultipartConfigFactory factory = new MultipartConfigFactory();
-        factory.createMultipartConfig();
-        factory.setMaxFileSize(DataSize.ofGigabytes(1l));
-        factory.setMaxRequestSize(DataSize.ofGigabytes(1l));
-        return factory.createMultipartConfig();
-    }
-
 }

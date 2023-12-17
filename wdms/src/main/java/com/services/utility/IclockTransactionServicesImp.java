@@ -1,18 +1,23 @@
 package com.services.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.utility.PushData;
 import com.repository.utility.IclockTransactionRepository;
 import com.repository.utility.ServerUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class IclockTransactionServicesImp {
@@ -21,14 +26,43 @@ public class IclockTransactionServicesImp {
     private IclockTransactionRepository repository;
     @Autowired
     private ServerUrlRepository urlRepository;
+    private String serverUrl = "http://localhost:8084/Device/Data/Push";
+
+
+    @PostConstruct
+    public void init() {
+        urlRepository.findById(1L).ifPresent(s -> serverUrl = s.getUrl());
+        pussStart();
+    }
+
+//    @Scheduled(cron = "0 */5 * * * *")
+
+    public void pussStart() {
+
+        if (serverUrl == null)
+            serverUrl = urlRepository.findById(1L).orElseThrow(() -> new RuntimeException("Please define server url")).getUrl();
+        syncData();
+    }
+
+    private Date add15Min(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.MINUTE, 15);
+        return cal.getTime();
+    }
 
     public void syncData() {
-        String serverUrl = urlRepository.findById(1l).orElseThrow(() -> new RuntimeException("Please define server url")).getUrl();
-        StringBuilder postData = new StringBuilder();
+        System.out.println(serverUrl);
+
         try {
-            postData.append(new ObjectMapper().writeValueAsString(repository.findSyncData()));
-            byte[] postDataBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
-            URL url = new URL(serverUrl + "Device/Data/Push");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            List<PushData> data = new ArrayList<>();
+            repository.findBySyncedIsFalse(PageRequest.of(0, 100, Sort.by("id").ascending())).forEach(d -> data.add(PushData.builder().id(d.getId()).empCode(d.getEmpCode()).empId(d.getEmpId()).punchTime(dateFormat.format(add15Min(d.getPunchTime()))).build()));
+            if (data.isEmpty()) return;
+            String dd = new ObjectMapper().writeValueAsString(data);
+            System.out.println(dd);
+            byte[] postDataBytes = dd.getBytes(StandardCharsets.UTF_8);
+            URL url = new URL(serverUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("User-Agent", "Mozilla/5.0");
             conn.setRequestMethod("POST");

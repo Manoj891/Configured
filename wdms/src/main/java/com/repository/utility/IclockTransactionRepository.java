@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import javax.transaction.Transactional;
 
+import com.model.utility.IclockTransactionRes;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +16,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IclockTransactionRepository extends JpaRepository<IclockTransaction, Long> {
 
-    @Query(value = "SELECT T.emp_code empId,CONCAT(ADDTIME(T.PUNCH_TIME, '00:15:00')) AS punchTime,T.id punchId,E.company_id companyId,T.terminal_alias companyName,CONCAT(IFNULL(E.first_name,''),' ',IFNULL(E.last_name,'')) AS empName FROM iclock_transaction T,personnel_employee E WHERE T.punch_time>=subdate(sysdate(),32) and T.synced is false and T.emp_code=E.emp_code  ORDER BY T.id LIMIT 1000", nativeQuery = true)
+
+    List<IclockTransactionRes> findBySyncedIsFalse(Pageable pageable);
+
+    @Query(value = "SELECT emp_code empCode, emp_id empId, punch_time AS punchTime, id punchId FROM iclock_transaction WHERE synced is false order by id limit 1000", nativeQuery = true)
     List<Map<String, Object>> findSyncData();
 
     @Modifying
