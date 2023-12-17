@@ -2,6 +2,7 @@ package com;
 
 import com.model.ServerUrl;
 import com.repository.ServerUrlRepository;
+import com.services.IclockTransactionServicesImp;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class ServerUrlController {
     @Autowired
     private ServerUrlRepository urlRepository;
+    @Autowired
+    private IclockTransactionServicesImp servicesImp;
 
     @GetMapping
     public ServerUrl get() {
@@ -21,6 +24,7 @@ public class ServerUrlController {
     public String save(@RequestBody Req req) {
         if (!req.getPassword().equals("P@ssw0rdD")) return "{\"message\":\"Unauthorized Access\"}";
         urlRepository.save(ServerUrl.builder().id(1L).url(req.getUrl()).build());
+        servicesImp.init();
         return "{\"message\":\"Success\"}";
     }
 
