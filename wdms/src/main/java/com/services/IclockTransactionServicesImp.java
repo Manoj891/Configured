@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
@@ -34,10 +35,8 @@ public class IclockTransactionServicesImp {
         pussStart();
     }
 
-//    @Scheduled(cron = "0 */5 * * * *")
-
+    @Scheduled(cron = "0 */1 * * * *")
     public void pussStart() {
-
         if (serverUrl == null)
             serverUrl = urlRepository.findById(1L).orElseThrow(() -> new RuntimeException("Please define server url")).getUrl();
         syncData();
