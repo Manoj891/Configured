@@ -1,7 +1,7 @@
 package com.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mode.PushData;
+import com.model.PushData;
 import com.repository.IclockTransactionRepository;
 import com.repository.ServerUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;

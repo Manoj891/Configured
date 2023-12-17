@@ -1,5 +1,5 @@
 
-package com.mode;
+package com.model;
 
 import lombok.*;
 
