@@ -15,12 +15,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IclockTransactionRepository extends JpaRepository<IclockTransaction, Long> {
-
-
     List<IclockTransactionRes> findBySyncedIsFalse(Pageable pageable);
-
-    @Query(value = "SELECT emp_code empCode, emp_id empId, punch_time AS punchTime, id punchId FROM iclock_transaction WHERE synced is false order by id limit 1000", nativeQuery = true)
-    List<Map<String, Object>> findSyncData();
 
     @Modifying
     @Transactional

@@ -37,8 +37,9 @@ public class IclockTransactionServicesImp {
 
     @Scheduled(cron = "0 */1 * * * *")
     public void pussStart() {
-        if (serverUrl == null)
+        if (serverUrl == null) {
             serverUrl = urlRepository.findById(1L).orElseThrow(() -> new RuntimeException("Please define server url")).getUrl();
+        }
         syncData();
     }
 
