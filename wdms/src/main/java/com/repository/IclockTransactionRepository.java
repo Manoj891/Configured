@@ -14,18 +14,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Transactional
 public interface IclockTransactionRepository extends JpaRepository<IclockTransaction, Long> {
     List<IclockTransactionRes> findBySyncedIsFalse(Pageable pageable);
 
     List<IclockTransactionRes> findByUpdatedFalse();
 
     @Modifying
-    @Transactional
-    @Query(value = "update iclock_transaction set synced=true  where id in(?1)", nativeQuery = true)
-    void updateSyncData(List<Long> ids);
+    @Query(value = "update iclock_transaction set synced=true  where id=?1", nativeQuery = true)
+    void updateSyncData(long id);
 
     @Modifying
-    @Transactional
     @Query(value = "update iclock_transaction set updated=true  where id=?1", nativeQuery = true)
     void updateData(Long id);
 }
