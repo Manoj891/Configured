@@ -21,7 +21,11 @@ public interface IclockTransactionRepository extends JpaRepository<IclockTransac
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE iclock_transaction SET synced=true  WHERE id in(?1)", nativeQuery = true)
+    @Query(value = "update iclock_transaction set synced=true  where id in(?1)", nativeQuery = true)
     void updateSyncData(List<Long> ids);
 
+    @Modifying
+    @Transactional
+    @Query(value = "update iclock_transaction set updated=true  where id=?1", nativeQuery = true)
+    void updateData(Long id);
 }

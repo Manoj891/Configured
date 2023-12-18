@@ -70,7 +70,7 @@ public class IclockTransactionServicesImp {
                 } else {
                     biomatrixRepository.save(DaywiseBiomatrix.builder().id(id).attDate(dd).outTime(i.getPunchTime()).lastUpdateId(i.getId()).updateAt(new Date()).build());
                 }
-
+                repository.updateData(i.getId());
             });
             repository.findBySyncedIsFalse(PageRequest.of(0, 100, Sort.by("id").ascending())).forEach(d -> data.add(PushData.builder().id(d.getId()).empCode(d.getEmpCode()).empId(d.getEmpId()).punchTime(dateFormat.format(add15Min(d.getPunchTime()))).build()));
             if (data.isEmpty()) return;
