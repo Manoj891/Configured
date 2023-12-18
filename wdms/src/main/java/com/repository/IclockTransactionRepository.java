@@ -17,6 +17,8 @@ import org.springframework.stereotype.Repository;
 public interface IclockTransactionRepository extends JpaRepository<IclockTransaction, Long> {
     List<IclockTransactionRes> findBySyncedIsFalse(Pageable pageable);
 
+    List<IclockTransactionRes> findByUpdatedFalse();
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE iclock_transaction SET synced=true  WHERE id in(?1)", nativeQuery = true)

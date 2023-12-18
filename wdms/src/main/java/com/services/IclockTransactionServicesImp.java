@@ -1,7 +1,9 @@
 package com.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.DaywiseBiomatrix;
 import com.model.PushData;
+import com.repository.DaywiseBiomatrixRepository;
 import com.repository.IclockTransactionRepository;
 import com.repository.ServerUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class IclockTransactionServicesImp {
     private IclockTransactionRepository repository;
     @Autowired
     private ServerUrlRepository urlRepository;
+    @Autowired
+    private DaywiseBiomatrixRepository biomatrixRepository;
     private String serverUrl = "http://localhost:8084/Device/Data/Push";
 
 
@@ -55,7 +59,19 @@ public class IclockTransactionServicesImp {
 
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             List<PushData> data = new ArrayList<>();
+            repository.findByUpdatedFalse().forEach(i -> {
+                String dd = date.format(i.getPunchTime());
+                long empId = Long.parseLong(i.getEmpId());
+                String id = dd + "-" + empId;
+                if (biomatrixRepository.countByEmpIdAndAttDate(empId, dd) == 0) {
+                    biomatrixRepository.save(DaywiseBiomatrix.builder().id(id).attDate(dd).inTime(i.getPunchTime()).outTime(null).lastUpdateId(i.getId()).updateAt(new Date()).build());
+                } else {
+                    biomatrixRepository.save(DaywiseBiomatrix.builder().id(id).attDate(dd).outTime(i.getPunchTime()).lastUpdateId(i.getId()).updateAt(new Date()).build());
+                }
+
+            });
             repository.findBySyncedIsFalse(PageRequest.of(0, 100, Sort.by("id").ascending())).forEach(d -> data.add(PushData.builder().id(d.getId()).empCode(d.getEmpCode()).empId(d.getEmpId()).punchTime(dateFormat.format(add15Min(d.getPunchTime()))).build()));
             if (data.isEmpty()) return;
             String dd = new ObjectMapper().writeValueAsString(data);

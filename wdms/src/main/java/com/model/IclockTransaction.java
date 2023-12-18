@@ -14,13 +14,14 @@ import java.util.Date;
 @Entity
 @Table(name = "iclock_transaction", indexes = {
         @Index(name = "index_iclock_transaction_synced", columnList = "synced"),
+        @Index(name = "index_iclock_transaction_updated", columnList = "updated"),
         @Index(name = "index_iclock_transaction_punch_time", columnList = "punch_time")
 })
 public class IclockTransaction {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    private long id;
     @Column(name = "emp_code")
     private String empCode;
     @Column(name = "punch_time")
@@ -76,6 +77,9 @@ public class IclockTransaction {
     private String temperature;
     @Column(name = "synced", columnDefinition = "boolean default false")
     private boolean synced;
+
+    @Column(name = "updated", columnDefinition = "boolean default false")
+    private boolean updated;
 
     @Override
     public String toString() {
