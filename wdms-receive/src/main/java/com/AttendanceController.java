@@ -14,7 +14,7 @@ import java.util.List;
 @Slf4j
 @CrossOrigin
 @RestController
-@RequestMapping("/api/data-receive")
+@RequestMapping
 public class AttendanceController {
     @Autowired
     private AttendanceRepository repository;
