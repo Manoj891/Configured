@@ -33,7 +33,7 @@ public class IclockTransactionServicesImp {
     private ServerUrlRepository urlRepository;
     @Autowired
     private DaywiseBiomatrixRepository biomatrixRepository;
-    private String serverUrl = "http://localhost:8083/hrms/api/login/public/device-data-receive";
+    private String serverUrl;
 
 
     @PostConstruct
@@ -59,6 +59,9 @@ public class IclockTransactionServicesImp {
 
     public void syncData() {
         try {
+            if (serverUrl == null || serverUrl.length() < 10) {
+                throw new RuntimeException("Invalid URL");
+            }
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             List<PushData> data = new ArrayList<>();
