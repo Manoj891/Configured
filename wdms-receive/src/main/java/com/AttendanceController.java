@@ -25,12 +25,11 @@ public class AttendanceController {
         return "{\"status\":\"active\"}";
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<List<Long>> receiveData(@RequestParam int branch, @RequestBody List<AttendanceReq> req) {
         List<Long> res = new ArrayList<>();
         req.forEach(r -> {
             try {
-                log.info(r.toString());
                 repository.save(Attendance.builder().punchTime(d.parse(r.getPunchTime())).empId(r.getEmpId()).empCode(r.getEmpCode()).pk(AttendancePk.builder().branch(branch).id(r.getId()).build()).build());
                 res.add(r.getId());
                 log.info("Saved " + r.getId() + "-" + branch);

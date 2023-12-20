@@ -79,6 +79,7 @@ public class IclockTransactionServicesImp {
             repository.findBySyncedIsFalse(PageRequest.of(0, 100, Sort.by("id").ascending())).forEach(d -> data.add(PushData.builder().id(d.getId()).empCode(d.getEmpCode()).empId(d.getEmpId()).punchTime(dateFormat.format(add15Min(d.getPunchTime()))).build()));
             if (data.isEmpty()) return;
             HttpURLConnection conn = null;
+            System.out.println(serverUrl);
             try {
                 URL url = new URL(serverUrl);
                 conn = (HttpURLConnection) url.openConnection();
@@ -93,6 +94,7 @@ public class IclockTransactionServicesImp {
                 while ((output = in.readLine()) != null) {
                     response.append(output);
                 }
+                System.out.println(response);
                 new com.fasterxml.jackson.databind.ObjectMapper().readValue(response.toString(), new com.fasterxml.jackson.core.type.TypeReference<List<Long>>() {
                 }).forEach(id -> repository.updateSyncData(id));
 
