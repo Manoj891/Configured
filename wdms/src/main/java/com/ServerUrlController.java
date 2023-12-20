@@ -1,9 +1,9 @@
 package com;
 
 import com.model.ServerUrl;
+import com.model.ServerUrlReq;
 import com.repository.ServerUrlRepository;
 import com.services.IclockTransactionServicesImp;
-import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,20 +21,12 @@ public class ServerUrlController {
     }
 
     @PostMapping
-    public String save(@RequestBody Req req) {
+    public String save(@RequestBody ServerUrlReq req) {
         if (!req.getPassword().equals("P@ssw0rdD")) return "{\"message\":\"Unauthorized Access\"}";
         urlRepository.save(ServerUrl.builder().id(1L).url(req.getUrl()).build());
         servicesImp.init();
         return "{\"message\":\"Success\"}";
     }
 
-    @Setter
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    public static class Req {
-        private String url;
-        private String password;
-    }
+
 }
