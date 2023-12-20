@@ -26,15 +26,14 @@ public class AttendanceController {
     }
 
     @PostMapping
-    public ResponseEntity<List<Long>> paymentGenerate(@RequestBody List<AttendanceReq> req) {
+    public ResponseEntity<List<Long>> receiveData(@RequestParam int branch, @RequestBody List<AttendanceReq> req) {
         List<Long> res = new ArrayList<>();
         req.forEach(r -> {
             try {
                 log.info(r.toString());
-                repository.save(Attendance.builder().punchTime(d.parse(r.getPunchTime())).empId(r.getEmpId()).empCode(r.getEmpCode())
-                        .pk(AttendancePk.builder().branch(r.getBranch()).id(r.getId()).build()).build());
+                repository.save(Attendance.builder().punchTime(d.parse(r.getPunchTime())).empId(r.getEmpId()).empCode(r.getEmpCode()).pk(AttendancePk.builder().branch(branch).id(r.getId()).build()).build());
                 res.add(r.getId());
-                log.info("Saved " + r.getId() + " " + r.getBranch());
+                log.info("Saved " + r.getId() + "-" + branch);
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
