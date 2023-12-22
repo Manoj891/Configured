@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "hibernate.connection.driver_class",
-      "type": "java.lang.String",
-      "description": "Description for hibernate.connection.driver_class."
-  }
-] }
