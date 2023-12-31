@@ -25,7 +25,7 @@ public class StudentInfo implements java.io.Serializable {
     private Long subjectGroup;
     @Column(name = "ROLL_NO")
     private Integer rollNo;
-    @Column(name = "SECTION", columnDefinition = "VARCHAR(15)")
+    @Column(name = "section", columnDefinition = "VARCHAR(40)")
     private String section;
     @Column(name = "STU_NAME")
     private String stuName;

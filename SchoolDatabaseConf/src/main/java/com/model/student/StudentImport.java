@@ -38,7 +38,7 @@ public class StudentImport {
     private String mobileNo;
     @Column(name = "fathers_name",length = 60)
     private String fathersName;
-    @Column(name = "fathers_contactNo",length = 60)
+    @Column(name = "fathers_contact_no",length = 60)
     private String fathersContactNo;
     @Column(name = "fathers_occupation",length = 60)
     private String fathersOccupation;
@@ -46,7 +46,7 @@ public class StudentImport {
     private String mothersName;
     @Column(name = "mothers_occupation",length = 60)
     private String mothersOccupation;
-    @Column(name = "mothers_contactNo",length = 60)
+    @Column(name = "mothers_contact_no",length = 60)
     private String mothersContactNo;
     @Column(name = "permanent_address",length = 60)
     private String permanentAddress;
@@ -58,7 +58,6 @@ public class StudentImport {
     private String registrationDate;
     @Column(name = "approved")
     private boolean approved;
-
     public long getId() {
         return id;
     }

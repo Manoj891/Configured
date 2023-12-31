@@ -12,10 +12,12 @@ public class WelcomeController {
         return "Welcome DIT Solution";
     }
 
-    @GetMapping(".well-known/pki-validation/F8F862EC218B1C8E3EDFDB4D2584A935.txt")
+    @GetMapping(".well-known/pki-validation/8C5DFF7D769EAA518F603F29EB7489CB.txt")
     public String ssl() {
-        return "29D6EA42696D5168C4819BE7943621C62964D1FB3B8831D727ABDAA92AB80454\n" +
+        return "D2FD731C634643AD21732DBE31EB786B2C4767048D36050788A993449774FC10\n" +
                 "comodoca.com\n" +
-                "ff0fcbb5051a6ac";
+                "dcf055353206ca7";
+//        https://manage.sslforfree.com/dashboard
+//        openssl pkcs12 -export -in certificate.crt -inkey private.key -out dg-trade-ssl-key.p12 -passout pass:1234
     }
 }
