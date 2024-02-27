@@ -27,9 +27,9 @@ public class ExamMarkEntry {
     private long studentRegNo;
     @Column(name = "EXAM", nullable = false)
     private long exam;
-    @Column(name = "TH_OM", nullable = false)
+    @Column(name = "TH_OM", columnDefinition = "float(5,3) default 0")
     private Float thOm;
-    @Column(name = "PR_OM", nullable = false)
+    @Column(name = "PR_OM", columnDefinition = "float(5,3)  default 0")
     private Float prOm;
 
     @Column(name = "t1t", columnDefinition = "float default 0")
