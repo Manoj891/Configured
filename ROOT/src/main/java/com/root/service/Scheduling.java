@@ -24,7 +24,7 @@ public class Scheduling {
         try {
             for (String s : Objects.requireNonNull(new File("/opt/tomcat/logs/").list())) {
                 if (!s.endsWith(".log")) {
-                    s = "/opt/tomcat/webapps/logs/" + s;
+                    s = "/opt/tomcat/logs/" + s;
                     log.info("removed " + s + " " + new File(s).delete());
                 }
             }
