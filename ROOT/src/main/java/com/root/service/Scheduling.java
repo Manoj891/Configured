@@ -14,7 +14,7 @@ import java.util.Objects;
 @Service
 @Slf4j
 public class Scheduling {
-    @Scheduled(cron = "00 00 11 * * ?")
+    @Scheduled(cron = "00 00 03 * * ?")
     public void morning03() {
         execute();
     }
