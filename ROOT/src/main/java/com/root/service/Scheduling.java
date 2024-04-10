@@ -24,6 +24,7 @@ public class Scheduling {
         try {
             for (String s : Objects.requireNonNull(new File("/opt/tomcat/logs/").list())) {
                 if (!s.endsWith(".log")) {
+                    if (s.equalsIgnoreCase("catalina.out")) continue;
                     s = "/opt/tomcat/logs/" + s;
                     log.info("removed " + s + " " + new File(s).delete());
                 }
@@ -33,16 +34,21 @@ public class Scheduling {
         String cmd = "reboot";
         Process p = null;
         try {
-            FileInputStream in = new FileInputStream("/opt/tomcat/webapps/reboot.txt");
+            File f = new File("/opt/tomcat/webapps/reboot.txt");
+            if (!f.exists()) {
+                f.mkdirs();
+            }
+            FileInputStream in = new FileInputStream(f);
             StringBuilder data = new StringBuilder();
             int a = 0;
             while (a >= 0) {
                 a = in.read();
                 data.append((char) a);
             }
-            FileOutputStream out = new FileOutputStream("/opt/tomcat/webapps/reboot.txt");
-            data.append("\nReboot Time ").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            out.write(data.toString().getBytes(StandardCharsets.UTF_8));
+            in.close();
+            FileOutputStream out = new FileOutputStream(f);
+            String s = "Reboot Time " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n" + data;
+            out.write(s.getBytes(StandardCharsets.UTF_8));
             out.close();
             p = new ProcessBuilder().command("bash", "-c", cmd).start();
             String line;

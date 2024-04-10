@@ -11,7 +11,7 @@
     <groupId>com.ROOT</groupId>
     <artifactId>ROOT</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>ROOT</name>
     <description>ROOT API gateway</description>
     <properties>
