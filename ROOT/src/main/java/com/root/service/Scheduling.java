@@ -33,20 +33,25 @@ public class Scheduling {
         }
 
         Process p = null;
+        StringBuilder data = new StringBuilder();
         try {
-
             FileInputStream in = new FileInputStream("/opt/tomcat/webapps/reboot.txt");
-            StringBuilder data = new StringBuilder();
             int a = 0;
             while (a >= 0) {
                 a = in.read();
                 data.append((char) a);
             }
             in.close();
+        } catch (Exception ignored) {
+        }
+        try {
             FileOutputStream out = new FileOutputStream("/opt/tomcat/webapps/reboot.txt");
             String s = "Reboot Time " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n" + data;
             out.write(s.getBytes(StandardCharsets.UTF_8));
             out.close();
+        } catch (Exception ignored) {
+        }
+        try {
             p = new ProcessBuilder().command("bash", "-c", "reboot").start();
             String line;
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
