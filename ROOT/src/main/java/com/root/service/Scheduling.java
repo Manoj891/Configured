@@ -31,14 +31,11 @@ public class Scheduling {
             }
         } catch (Exception ignored) {
         }
-        String cmd = "reboot";
+
         Process p = null;
         try {
-            File f = new File("/opt/tomcat/webapps/reboot.txt");
-            if (!f.exists()) {
-                f.mkdirs();
-            }
-            FileInputStream in = new FileInputStream(f);
+
+            FileInputStream in = new FileInputStream("/opt/tomcat/webapps/reboot.txt");
             StringBuilder data = new StringBuilder();
             int a = 0;
             while (a >= 0) {
@@ -46,11 +43,11 @@ public class Scheduling {
                 data.append((char) a);
             }
             in.close();
-            FileOutputStream out = new FileOutputStream(f);
+            FileOutputStream out = new FileOutputStream("/opt/tomcat/webapps/reboot.txt");
             String s = "Reboot Time " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n" + data;
             out.write(s.getBytes(StandardCharsets.UTF_8));
             out.close();
-            p = new ProcessBuilder().command("bash", "-c", cmd).start();
+            p = new ProcessBuilder().command("bash", "-c", "reboot").start();
             String line;
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
             do {
