@@ -24,7 +24,7 @@ public class MsController {
             }
             return data;
         } catch (Exception e) {
-            return e.getMessage();
+            return "";
         }
     }
 
