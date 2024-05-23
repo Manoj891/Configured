@@ -109,7 +109,8 @@ public class OrganizationMaster implements java.io.Serializable {
     private String aboutSchool;
     @Column(name = "aakashsms", insertable = false, updatable = false)
     private String aakashsms;
-
+    @Column(name = "device_serial_number", length = 15)
+    private String deviceSerialNumber;
     public Long getId() {
         return id;
     }

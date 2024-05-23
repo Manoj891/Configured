@@ -28,6 +28,8 @@ public class StudentAttendance implements java.io.Serializable {
     private String enterBy;
     @Column(name = "ENTER_DATE", columnDefinition = "DATETIME")
     private String enterDate;
+    @Column(name = "remark", length = 50)
+    private String remark;
     @JoinColumn(name = "STU_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private StudentInfo studentInfo;
