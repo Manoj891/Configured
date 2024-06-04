@@ -37,7 +37,7 @@ public class EmployeeAttendance implements java.io.Serializable {
 
     @Setter(AccessLevel.NONE)
     @Getter(AccessLevel.NONE)
-    @JoinColumn(name = "STU_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @JoinColumn(name = "emp_id", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EmployeeInfo employeeInfo;
 
