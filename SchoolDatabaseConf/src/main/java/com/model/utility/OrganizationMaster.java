@@ -10,21 +10,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import model.DateConveter;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "organization_master")
+@Getter
+@Setter
 public class OrganizationMaster implements java.io.Serializable {
+
 
     @Id
     @Column(name = "ID")
     private Long id;
     @Column(name = "NAME", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String name;
-    @Column(name = "organization_name", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
-    private String organizationName;
     @Column(name = "ADDRESS", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String address;
+
     @Column(name = "PROVINCE")
     private String province;
     @Column(name = "DISTRICT", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
@@ -107,242 +110,9 @@ public class OrganizationMaster implements java.io.Serializable {
 
     @Column(name = "ABOUT_SCHOOL", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String aboutSchool;
-    @Column(name = "aakashsms", insertable = false, updatable = false)
-    private String aakashsms;
+
     @Column(name = "device_serial_number", length = 15)
     private String deviceSerialNumber;
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getEstablishYear() {
-        return establishYear;
-    }
-
-    public void setEstablishYear(String establishYear) {
-        this.establishYear = establishYear;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getStudentFeeIncomeAccount() {
-        return studentFeeIncomeAccount;
-    }
-
-    public void setStudentFeeIncomeAccount(String studentFeeIncomeAccount) {
-        this.studentFeeIncomeAccount = studentFeeIncomeAccount;
-    }
-
-    public String getCashAccount() {
-        return cashAccount;
-    }
-
-    public void setCashAccount(String cashAccount) {
-        this.cashAccount = cashAccount;
-    }
-
-    public String getInventoryAccount() {
-        return inventoryAccount;
-    }
-
-    public void setInventoryAccount(String inventoryAccount) {
-        this.inventoryAccount = inventoryAccount;
-    }
-
-    public String getStudentInventoryAccount() {
-        return studentInventoryAccount;
-    }
-
-    public void setStudentInventoryAccount(String studentInventoryAccount) {
-        this.studentInventoryAccount = studentInventoryAccount;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getMunicipal() {
-        return municipal;
-    }
-
-    public void setMunicipal(String municipal) {
-        this.municipal = municipal;
-    }
-
-    public String getWardNo() {
-        return wardNo;
-    }
-
-    public void setWardNo(String wardNo) {
-        this.wardNo = wardNo;
-    }
-
-    public String getSundryCreditors() {
-        return sundryCreditors;
-    }
-
-    public void setSundryCreditors(String sundryCreditors) {
-        this.sundryCreditors = sundryCreditors;
-    }
-
-    public String getDocumentFolderLocation() {
-        return documentFolderLocation;
-    }
-
-    public void setDocumentFolderLocation(String documentFolderLocation) {
-        this.documentFolderLocation = documentFolderLocation;
-    }
-
-    public String getSundryDebtors() {
-        return sundryDebtors;
-    }
-
-    public void setSundryDebtors(String sundryDebtors) {
-        this.sundryDebtors = sundryDebtors;
-    }
-
-    public String getReservesAndSurplus() {
-//         System.out.println("reservesAndSurplus "+reservesAndSurplus);
-        return reservesAndSurplus;
-    }
-
-    public void setReservesAndSurplus(String reservesAndSurplus) {
-        this.reservesAndSurplus = reservesAndSurplus;
-    }
-
-    public String getSmsSendApi() {
-        return smsSendApi;
-    }
-
-    public void setSmsSendApi(String smsSendApi) {
-        this.smsSendApi = smsSendApi;
-    }
-
-    public String getAboutSchool() {
-        return aboutSchool;
-    }
-
-    public void setAboutSchool(String aboutSchool) {
-        this.aboutSchool = aboutSchool;
-    }
-
-    public String getInstallationDate() {
-        return DateConveter.adToBs(installationDate);
-    }
-
-    public void setInstallationDate(String installationDate) {
-        this.installationDate = DateConveter.bsToAd(installationDate);
-    }
-
-    public String getKhaltiPaymentActive() {
-        return khaltiPaymentActive;
-    }
-
-    public void setKhaltiPaymentActive(String khaltiPaymentActive) {
-        this.khaltiPaymentActive = "N";
-    }
-
-    public String getEmployeeFundPayable() {
-        return employeeFundPayable;
-    }
-
-    public void setEmployeeFundPayable(String employeeFundPayable) {
-        this.employeeFundPayable = employeeFundPayable;
-    }
-
-    public String getCitPayable() {
-        return citPayable;
-    }
-
-    public void setCitPayable(String citPayable) {
-        this.citPayable = citPayable;
-    }
-
-    public String getPfPayable() {
-        return pfPayable;
-    }
-
-    public void setPfPayable(String pfPayable) {
-        this.pfPayable = pfPayable;
-    }
-
-    public String getSalaryExpenses() {
-        return salaryExpenses;
-    }
-
-    public void setSalaryExpenses(String salaryExpenses) {
-        this.salaryExpenses = salaryExpenses;
-    }
-
-    public String getSstPayable() {
-        return sstPayable;
-    }
-
-    public void setSstPayable(String sstPayable) {
-        this.sstPayable = sstPayable;
-    }
-
-    public String getIncomeTaxPayable() {
-        return incomeTaxPayable;
-    }
-
-    public void setIncomeTaxPayable(String incomeTaxPayable) {
-        this.incomeTaxPayable = incomeTaxPayable;
-    }
 
     @Override
     public String toString() {

@@ -19,7 +19,7 @@ public class SentSms {
     private String sendBy;
     @Column(name = "send_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date sendDate;
+    private Date sendDate;
     @Column(name = "status", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String status;
     @Column(name = "rate")
@@ -86,7 +86,7 @@ public class SentSms {
         return rate;
     }
 
-    public void setRate(Float rate) {
+    public void setRate(float rate) {
         this.rate = rate;
     }
 
@@ -103,7 +103,7 @@ public class SentSms {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 

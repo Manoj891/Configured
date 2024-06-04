@@ -4,7 +4,6 @@ import com.model.setup.BillMaster;
 import com.model.setup.ClassMaster;
 import com.model.setup.ProgramMaster;
 import com.model.setup.SubjectGroup;
-
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,12 +15,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-
 import model.DateConveter;
 
 @Entity
-@Table(name = "pre_admission")
-public class PreAdmission {
+@Table(name = "pre_admission", uniqueConstraints = @UniqueConstraint(columnNames = {"STU_NAME", "FATHER_NAME", "MOTHER_NAME", "DATE_OF_BIRTH", "PROVINCE", "DISTRICT", "MUNICIPAL"}))
+public class PreAdmission  {
 
     @Id
     @Column(name = "ID")
@@ -37,7 +35,7 @@ public class PreAdmission {
 
     @Column(name = "ENTER_DATE", nullable = false, updatable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "ENTER_BY", nullable = false, updatable = false)
 
     private String enterBy;

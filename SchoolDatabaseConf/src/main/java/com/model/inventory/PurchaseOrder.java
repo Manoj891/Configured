@@ -29,12 +29,12 @@ public class PurchaseOrder implements java.io.Serializable {
     private String approveBy;
     @Column(name = "APPROVE_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date approveDate;
+    private Date approveDate;
     @Column(name = "ENTER_BY", nullable = false)
     private String enterBy;
     @Column(name = "ENTER_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "NARRATION")
     private String narration;
     @Column(name = "ORDER_SN")
@@ -43,7 +43,7 @@ public class PurchaseOrder implements java.io.Serializable {
     private String status;
     @Column(name = "WITHIN_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date withinDate;
+    private Date withinDate;
     @Column(name = "FISCAL_YEAR", nullable = false)
     private Long fiscalYear;
     @Column(name = "SUPPLIER", nullable = false)

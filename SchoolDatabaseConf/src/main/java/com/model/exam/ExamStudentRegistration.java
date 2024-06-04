@@ -53,12 +53,12 @@ public class ExamStudentRegistration implements java.io.Serializable {
     private String enterBy;
     @Column(name = "ENTER_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "APPROVE_BY", nullable = true)
     private String approveBy;
     @Column(name = "APPROVE_DATE", nullable = true)
     @Temporal(TemporalType.DATE)
-    private java.util.Date approveDate;
+    private Date approveDate;
     @Column(name = "board_symbol_no", length = 15)
     private String boardSymbolNo;
 

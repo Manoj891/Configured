@@ -1,6 +1,6 @@
 package com.model.account;
 
-import com.model.billing.StuBillingMaster;
+
 
 import java.util.Date;
 import java.util.List;
@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import com.model.billing.StuBillingMaster;
 import model.DateConveter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -40,22 +41,20 @@ public class Voucher implements java.io.Serializable {
     private String enterBy;
     @Column(name = "ENTER_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "APPROVE_BY", updatable = false, insertable = false, nullable = true)
     private String approveBy;
     @Column(name = "APPROVE_DATE", updatable = false, insertable = false, nullable = true)
     @Temporal(TemporalType.DATE)
-    private java.util.Date approveDate;
+    private Date approveDate;
 
     @Column(name = "REJECT_BY", updatable = false, insertable = false, nullable = true)
     private String rejectBy;
     @Column(name = "REJECT_DATE", updatable = false, insertable = false, nullable = true)
     @Temporal(TemporalType.DATE)
-    private java.util.Date rejectDate;
+    private Date rejectDate;
 
-    @Column(name = "created_at", columnDefinition = " timestamp default now()")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+
     @Column(name = "NARRATION", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String narration;
     @Column(name = "CHEQUE_NO")

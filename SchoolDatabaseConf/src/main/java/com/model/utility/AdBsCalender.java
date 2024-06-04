@@ -15,7 +15,7 @@ public class AdBsCalender implements java.io.Serializable {
     @Id
     @Column(name = "AD_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date adDate;
+    private Date adDate;
     @Column(name = "BS_DATE", updatable = false, unique = true)
     private String bsDate;
     @Column(name = "DAY", columnDefinition = "VARCHAR(3)", updatable = false)

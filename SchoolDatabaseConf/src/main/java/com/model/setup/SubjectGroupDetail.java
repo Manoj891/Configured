@@ -37,13 +37,6 @@ public class SubjectGroupDetail implements java.io.Serializable {
     private float prFm;
     @Column(name = "PR_PM", nullable = false, columnDefinition = "FLOAT(5)")
     private float prPm;
-    @Column(name = "in_order")
-    private Integer inOrder;
-    @Column(name = "CREDIT_PH", columnDefinition = "FLOAT(5) default 0")
-    private Float creditPh;
-    @Column(name = "SUBJECT_CODE_PH",  columnDefinition = "VARCHAR(15) default ''")
-    private String subjectCodePh;
-
     @JoinColumn(name = "SUBJECT_GROUP", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private SubjectGroup SubjectGroupMaster;
@@ -53,6 +46,12 @@ public class SubjectGroupDetail implements java.io.Serializable {
     @JoinColumn(name = "PROGRAM", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProgramMaster programMaster;
+    @Column(name = "in_order")
+    private Integer inOrder;
+    @Column(name = "CREDIT_PH", columnDefinition = "FLOAT(5) default 0")
+    private Float creditPh;
+    @Column(name = "SUBJECT_CODE_PH", nullable = false, columnDefinition = "VARCHAR(15) ''")
+    private String subjectCodePh;
 
     public Long getId() {
         return id;
@@ -140,6 +139,14 @@ public class SubjectGroupDetail implements java.io.Serializable {
 
     public void setCredit(Float credit) {
         this.credit = credit;
+    }
+
+    public Integer getInOrder() {
+        return inOrder;
+    }
+
+    public void setInOrder(Integer inOrder) {
+        this.inOrder = inOrder;
     }
 
     public Float getCreditPh() {

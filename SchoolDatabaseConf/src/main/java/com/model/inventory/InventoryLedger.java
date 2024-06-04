@@ -2,18 +2,10 @@ package com.model.inventory;
 
 import com.model.account.ChartOfAccount;
 import com.model.employee.DepartmentMaster;
-import com.model.employee.EmpLevelMaster;
-import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import model.DateConveter;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "inventory_ledger")
@@ -48,12 +40,12 @@ public class InventoryLedger implements java.io.Serializable {
     private String billNo;
     @Column(name = "ENTER_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "ENTER_BY", nullable = false)
     private String enterBy;
     @Column(name = "APPROVE_DATE", nullable = true)
     @Temporal(TemporalType.DATE)
-    private java.util.Date approveDate;
+    private Date approveDate;
     @Column(name = "APPROVE_BY", nullable = true)
     private String approveBy;
     @Column(name = "SUPPLIER", nullable = false)

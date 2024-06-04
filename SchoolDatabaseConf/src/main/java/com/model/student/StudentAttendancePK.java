@@ -5,52 +5,27 @@
  */
 package com.model.student;
 
-import java.io.Serializable;
-import java.util.Date;
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import model.DateConveter;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.io.Serializable;
+import java.util.Date;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Embeddable
 public class StudentAttendancePK implements Serializable {
 
-    @Column(name = "STU_ID")
+    @Column(name = "stu_id")
     private Long stuId;
-    @Column(name = "ATT_DATE")
-    @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date attDate;
-
-    public StudentAttendancePK() {
-    }
-
-    public StudentAttendancePK(Long stuId, Date attDate) {
-        this.stuId = stuId;
-        this.attDate = attDate;
-    }
-
-    public StudentAttendancePK(Long stuId, String attDate) {
-        this.stuId = stuId;
-        this.attDate = DateConveter.toDate(attDate);
-    }
-
-    public Long getStuId() {
-        return stuId;
-    }
-
-    public void setStuId(Long stuId) {
-        this.stuId = stuId;
-    }
-
-    public Date getAttDate() {
-        return attDate;
-    }
-
-    public String getDate() {
-        return DateConveter.toString(attDate);
-    }
-
-    public void setAttDate(Date attDate) {
-        this.attDate = attDate;
-    }
+    @Column(name = "att_date")
+    @Temporal(TemporalType.DATE)
+    private Date attDate;
 
 }

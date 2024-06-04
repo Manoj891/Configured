@@ -25,10 +25,10 @@ public class SchoolClassSession implements java.io.Serializable {
     private Long academicYear;
     @Column(name = "START_DATE", columnDefinition = "DATE NOT NULL")
     @Temporal(TemporalType.DATE)
-    private java.util.Date startDate;
+    private Date startDate;
     @Column(name = "END_DATE", columnDefinition = "DATE NOT NULL")
     @Temporal(TemporalType.DATE)
-    private java.util.Date endDate;
+    private Date endDate;
     @Column(name = "TOTAL_MONTH")
     private Integer totalMonth;
 

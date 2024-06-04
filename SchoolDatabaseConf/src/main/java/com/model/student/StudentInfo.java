@@ -1,9 +1,15 @@
 package com.model.student;
 
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import com.model.setup.*;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+
 import model.DateConveter;
 
 @Entity
@@ -11,7 +17,7 @@ import model.DateConveter;
 public class StudentInfo implements java.io.Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
     @Column(name = "SN", updatable = false)
     private int sn;
@@ -31,7 +37,8 @@ public class StudentInfo implements java.io.Serializable {
     private String stuName;
     @Column(name = "DATE_OF_BIRTH", columnDefinition = "VARCHAR(15)")
     private String dateOfBirth;
-
+    @Column(name = "board_regd_no", length = 15)
+    private String boardRegdNo;
     @Column(name = "MOBILE_NO")
     private String mobileNo;
     @Column(name = "ALTERNATIVE_MOBILE")
@@ -64,7 +71,7 @@ public class StudentInfo implements java.io.Serializable {
     private String enterBy;
     @Column(name = "ENTER_DATE", updatable = false)
     @Temporal(TemporalType.DATE)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "STATUS", updatable = false)
     private String status;
     @Column(name = "PRE_ADMISSION", updatable = false)
@@ -120,36 +127,34 @@ public class StudentInfo implements java.io.Serializable {
 
     @Column(name = "link_student", length = 2)
     private String linkStudent;
-    @Column(name = "board_regd_no", length = 15)
-    private String boardRegdNo;
+
     @Column(name = "reg_no_link")
     private Long regNoLink;
 
-    @JoinColumn(name = "RELIGION", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private ReligionMaster religionMaster;
-
-    @JoinColumn(name = "CAST_ETHNICITY", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private CastEthnicityMaster castEthnicityMaster;
-
-    @JoinColumn(name = "PROGRAM", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private ProgramMaster programMaster;
-
-    @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private ClassMaster classMaster;
-
-    @JoinColumn(name = "ACADEMIC_YEAR", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private AcademicYear academicYearMaster;
-
-    @JoinColumn(name = "SUBJECT_GROUP", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private SubjectGroup subjectGroupMaster;
-
-    //
+    //    @JoinColumn(name = "RELIGION", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private ReligionMaster religionMaster;
+//
+//    @JoinColumn(name = "CAST_ETHNICITY", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private CastEthnicityMaster castEthnicityMaster;
+//
+//    @JoinColumn(name = "PROGRAM", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private ProgramMaster programMaster;
+//    
+//    @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private ClassMaster classMaster;
+//    
+//    @JoinColumn(name = "ACADEMIC_YEAR", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private AcademicYear academicYearMaster;
+//    
+//    @JoinColumn(name = "SUBJECT_GROUP", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private SubjectGroup subjectGroupMaster;
+//    
     public String getAdmissionYear() {
         try {
             if (academicYear == null) {
@@ -288,7 +293,7 @@ public class StudentInfo implements java.io.Serializable {
 
     public String getGuardiansName() {
         try {
-            if (mothersQualification == null) {
+            if (guardiansName == null) {
                 return fathersName;
             }
         } catch (Exception e) {
@@ -742,19 +747,16 @@ public class StudentInfo implements java.io.Serializable {
         this.regNoLink = regNoLink;
     }
 
-    //    public ClassMaster getClassMaster() {
-//        return classMaster;
-//    }
-//
-//    public void setClassMaster(ClassMaster classMaster) {
-//        this.classMaster = classMaster;
-//    }
-//    public SubjectGroup getSubjectGroupMaster() {
-//        return subjectGroupMaster;
-//    }
-//    public void setSubjectGroupMaster(SubjectGroup subjectGroupMaster) {
-//        this.subjectGroupMaster = subjectGroupMaster;
-//    }
+
+
+    public String getBoardRegdNo() {
+        return boardRegdNo;
+    }
+
+    public void setBoardRegdNo(String boardRegdNo) {
+        this.boardRegdNo = boardRegdNo;
+    }
+
     @Override
     public String toString() {
         return "\n{\"id\": \"" + id + "\",\"gender\": \"" + gender + "\",\"academicYear\": \"" + academicYear + "\",\"program\": \"" + program + "\",\"classId\": \"" + classId + "\",\"subjectGroup\": \"" + subjectGroup + "\",\"stuName\": \"" + stuName + "\",\"dateOfBirth\": \"" + dateOfBirth + "\",\"fathersName\": \"" + fathersName + "\",\"mothersName\": \"" + mothersName + "\",\"mobileNo\": \"" + mobileNo + "\",\"alternativeMobile\": \"" + alternativeMobile + "\",\"email\": \"" + email + "\",\"province\": \"" + province + "\",\"district\": \"" + district + "\",\"municipal\": \"" + municipal + "\",\"wardNo\": \"" + wardNo + "\",\"tol\": \"" + tol + "\",\"provincet\": \"" + provincet + "\",\"districtt\": \"" + districtt + "\",\"municipalt\": \"" + municipalt + "\",\"wardNot\": \"" + wardNot + "\",\"tolt\": \"" + tolt + "\",\"enterBy\": \"" + enterBy + "\",\"enterDate\": \"" + enterDate + "\",\"status\": \"" + status + "\",\"preAdmission\": \"" + preAdmission + "\",\"photo\": \"" + photo + "\",\"rollNo\": \"" + rollNo + "\"}";

@@ -10,11 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "biometric_log", indexes = {
-        @Index(name = "index_biometric_log_user_id", columnList = "user_id"),
-        @Index(name = "index_biometric_log_punch_date", columnList = "punch_date"),
-        @Index(name = "index_biometric_log_status", columnList = "status")
-})
+@Table(name = "biometric_log")
 public class BiometricLog {
     @Id
     @Column(name = "id", length = 50)
@@ -27,6 +23,6 @@ public class BiometricLog {
     private String punchDate;
     @Column(name = "punch_time", columnDefinition = "time")
     private String punchTime;
-    @Column(name = "status", columnDefinition = "bit default 0")
+    @Column(name = "status", columnDefinition = "boolean default false")
     private boolean status;
 }

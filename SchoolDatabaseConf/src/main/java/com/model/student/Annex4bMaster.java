@@ -23,7 +23,7 @@ public class Annex4bMaster implements java.io.Serializable {
     @Id
     @Column(name = "ID")
     private String id;
-    @Column(name = "reg_no", nullable = false)
+    @Column(name = "REG_NO", nullable = false)
     private Long regNo;
     @Column(name = "SEME_YEAR", nullable = false)
     private Integer semYear;
@@ -46,7 +46,7 @@ public class Annex4bMaster implements java.io.Serializable {
     @Column(name = "PASS_PERCENT")
     private String passPercent;
     
-    @JoinColumn(name = "reg_no", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "REG_NO", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private StudentInfo stuInfo;
 

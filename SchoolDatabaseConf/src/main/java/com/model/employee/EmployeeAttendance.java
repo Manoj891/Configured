@@ -27,7 +27,7 @@ public class EmployeeAttendance implements java.io.Serializable {
     private String inTime;
     @Column(name = "out_time", columnDefinition = "TIME")
     private String outTime;
-    @Column(name = "enter_by", columnDefinition = "VARCHAR(25)")
+    @Column(name = "enter_by", columnDefinition = "VARCHAR(100)")
     private String enterBy;
     @Column(name = "enter_date", columnDefinition = "DATETIME")
     private String enterDate;
@@ -37,7 +37,7 @@ public class EmployeeAttendance implements java.io.Serializable {
 
     @Setter(AccessLevel.NONE)
     @Getter(AccessLevel.NONE)
-    @JoinColumn(name = "emp_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "STU_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EmployeeInfo employeeInfo;
 

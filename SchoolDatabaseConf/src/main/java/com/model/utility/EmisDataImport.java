@@ -41,10 +41,6 @@ public class EmisDataImport {
         this.address = address;
     }
 
-    public EmisDataImport() {
-
-    }
-
     public Long getId() {
         return id;
     }

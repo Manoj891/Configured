@@ -30,7 +30,7 @@ public class TeachersHomework implements java.io.Serializable {
     private Long teacher;
     @Column(name = "HOMEWORK_DATE", nullable = false)
     @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date homeworkDate;
+    private Date homeworkDate;
     @Column(name = "ACADEMIC_YEAR", nullable = false)
     private Long academicYear;
     @Column(name = "PROGRAM", nullable = false)

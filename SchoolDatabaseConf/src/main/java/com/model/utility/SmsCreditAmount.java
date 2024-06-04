@@ -15,7 +15,7 @@ public class SmsCreditAmount {
     private Double amount;
     @Column(name = "CREDIT_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date creditDate;
+    private Date creditDate;
     @Column(name = "CREDIT_BY")
     private String creditBy;
 

@@ -14,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.Index;
 
 @Entity
@@ -199,10 +198,6 @@ public class Ledger implements Serializable {
     public void setBankReconciliationDate(String bankReconciliationDate) {
         this.bankReconciliationDate = bankReconciliationDate;
     }
-
-    @Column(name = "created_at", columnDefinition = "datetime")
-    @Temporal(TemporalType.DATE)
-    private Date createdAt;
 
     @Override
     public String toString() {

@@ -25,12 +25,12 @@ public class LeaveApplication implements java.io.Serializable {
     private Long empId;
     @Column(name = "LEAVE_DATE_FROM", nullable = false)
     @NotNull
-    @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date leaveDateFrom;
+    @Temporal(TemporalType.DATE)
+    private Date leaveDateFrom;
     @Column(name = "LEAVE_DATE_TO", nullable = false)
     @NotNull
-    @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date leaveDateTo;
+    @Temporal(TemporalType.DATE)
+    private Date leaveDateTo;
     @Column(name = "REASONS")
     private String reasons;
 
@@ -38,13 +38,13 @@ public class LeaveApplication implements java.io.Serializable {
     private String status;
   @Column(name = "ENTER_DATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date enterDate;
+    private Date enterDate;
     @Column(name = "ENTER_By")
     private String enterBy;
 
     @Column(name = "APPROVE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date approveDate;
+    private Date approveDate;
     @Column(name = "APPROVE_BY")
     private String approveBy;
     @JoinColumn(name = "EMP_ID", referencedColumnName = "ID", insertable = false, updatable = false)

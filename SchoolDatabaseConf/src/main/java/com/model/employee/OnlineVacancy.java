@@ -46,7 +46,7 @@ public class OnlineVacancy implements java.io.Serializable {
     private String citizenshipNo;
     @Column(name = "dob")
     @Temporal(TemporalType.DATE)
-    private java.util.Date dob;
+    private Date dob;
     @Email
     @NotNull
     @Column(name = "email", unique = true, nullable = false)
@@ -79,7 +79,7 @@ public class OnlineVacancy implements java.io.Serializable {
     private String photo;
     @Column(name = "HIRE_FIRE_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date hireFireDate;
+    private Date hireFireDate;
     @Column(name = "HIRE_FIRE_STATUS")
     private String hireFireStatus;
 
@@ -186,7 +186,7 @@ public class OnlineVacancy implements java.io.Serializable {
         this.citizenshipNo = citizenshipNo;
     }
 
-    public java.util.Date getDob() {
+    public Date getDob() {
         return dob;
     }
 

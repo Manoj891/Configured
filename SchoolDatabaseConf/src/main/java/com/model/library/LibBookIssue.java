@@ -21,14 +21,14 @@ public class LibBookIssue implements java.io.Serializable {
     private Long staffId;
     @Column(name = "ISSUE_DATE", nullable = false)
     @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date issueDate;
+    private Date issueDate;
     @Column(name = "ISSUE_FOR_DAY")
     private Integer issueForDay;
     @Column(name = "BOOK_ISSUE_ID", unique = true, nullable = true)
     private String bookIssueId;
     @Column(name = "RETURN_DATE", nullable = true)
     @javax.persistence.Temporal(javax.persistence.TemporalType.DATE)
-    private java.util.Date returnDate;
+    private Date returnDate;
     @Column(name = "ISSUE_BY")
     private String issueBy;
     @Column(name = "RETURN_BY")

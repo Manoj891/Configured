@@ -1,6 +1,7 @@
 package com.model.exam;
 
 import com.model.setup.AcademicYear;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
 import model.DateConveter;
 
 @Entity
@@ -22,6 +24,9 @@ public class ExamMaster implements java.io.Serializable {
     private Long id;
     @Column(name = "EXAM_NAME", unique = true, nullable = false)
     private String examName;
+    @Column(name = "year_ad")
+    private Long yearAd;
+
     @Column(name = "ANNOUNCED_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private java.util.Date announcedDate;
@@ -31,8 +36,7 @@ public class ExamMaster implements java.io.Serializable {
     @JoinColumn(name = "TERMINAL", referencedColumnName = "ID", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private ExamTerminal terminal;
-    @Column(name = "year_ad")
-    private Long yearAd;
+
     public ExamMaster() {
     }
 
@@ -82,6 +86,14 @@ public class ExamMaster implements java.io.Serializable {
 
     public void setAnnouncedDate(String announcedDate) {
         this.announcedDate = DateConveter.bsToAdDate(announcedDate);
+    }
+
+    public Long getYearAd() {
+        return yearAd;
+    }
+
+    public void setYearAd(Long yearAd) {
+        this.yearAd = yearAd;
     }
 
     @Override

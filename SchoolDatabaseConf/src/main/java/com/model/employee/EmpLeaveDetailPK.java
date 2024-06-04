@@ -17,7 +17,7 @@ public class EmpLeaveDetailPK implements Serializable {
 
     @Column(name = "LEAVE_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date leaveDate;
+    private Date leaveDate;
     @Column(name = "EMP_ID")
     private Long empId;
 
@@ -31,11 +31,11 @@ public class EmpLeaveDetailPK implements Serializable {
   
     }
 
-    public java.util.Date getLeaveDate() {
+    public Date getLeaveDate() {
         return leaveDate;
     }
 
-    public void setLeaveDate(java.util.Date leaveDate) {
+    public void setLeaveDate(Date leaveDate) {
         this.leaveDate = leaveDate;
     }
 

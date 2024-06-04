@@ -68,6 +68,19 @@ public class StuBillingDetail implements Serializable {
     public StuBillingDetail() {
     }
 
+    public StuBillingDetail(String billNo, int billSn, String regNo, long academicYear, long program, long classId, long billId, double dr, double cr, String paymentDate, String isExtra) {
+        this.pk = new StuBillingDetailPK(billNo, billSn);
+        this.regNo = regNo;
+        this.academicYear = academicYear;
+        this.program = program;
+        this.classId = classId;
+        this.billId = billId;
+        this.dr = dr;
+        this.cr = cr;
+        this.paymentDate = DateConveter.toDate(paymentDate);
+        this.isExtra = isExtra;
+    }
+
     public StuBillingDetail(String billNo, int billSn, String regNo, long academicYear, long program, long classId, long billId, double dr, double cr, Date paymentDate, String isExtra) {
         this.pk = new StuBillingDetailPK(billNo, billSn);
         this.regNo = regNo;

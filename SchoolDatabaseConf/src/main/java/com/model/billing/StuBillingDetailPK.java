@@ -6,13 +6,14 @@
 package com.model.billing;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class StuBillingDetailPK implements Serializable {
 
-    @Column(name = "BILL_NO")
+    @Column(name = "bill_no")
     private String billNo;
     @Column(name = "BILL_SN")
     private int billSn;
@@ -41,4 +42,16 @@ public class StuBillingDetailPK implements Serializable {
         this.billSn = billSn;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StuBillingDetailPK that = (StuBillingDetailPK) o;
+        return billSn == that.billSn && Objects.equals(billNo, that.billNo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(billNo, billSn);
+    }
 }

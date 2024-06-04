@@ -22,7 +22,7 @@ public class ExamResultPublish implements java.io.Serializable {
     protected ExamResultPublishPK pk;
     @Column(name = "PUBLISH_DATE")
     @Temporal(TemporalType.DATE)
-    private java.util.Date publishDate;
+    private Date publishDate;
     @Column(name = "PUBLISH_BY")
     private String publishBy;
     @Column(name = "WORKING_DAYS")

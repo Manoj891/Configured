@@ -33,7 +33,7 @@ public class ShareHolder {
     private String gender;
     @Column(name = "dob")
     @Temporal(TemporalType.DATE)
-    private java.util.Date dob;
+    private Date dob;
     @Column(name = "mobile", unique = true)
     private String mobile;
     @Column(name = "marital_status")
@@ -64,7 +64,7 @@ public class ShareHolder {
 
     @Column(name = "join_date")
     @Temporal(TemporalType.DATE)
-    private java.util.Date joinDate;
+    private Date joinDate;
 
     @Column(name = "pan_no", unique = true, nullable = true)
     private String panNo;

@@ -42,9 +42,8 @@ public class ExamResultPublishSubject implements java.io.Serializable {
     private Float creditHour;
     @Column(name = "CREDIT_PH", columnDefinition = "FLOAT(5) default 0")
     private Float creditPh;
-    @Column(name = "SUBJECT_CODE_PH", columnDefinition = "VARCHAR(15) default ''")
+    @Column(name = "SUBJECT_CODE_PH",  columnDefinition = "VARCHAR(15) default ''")
     private String subjectCodePh;
-
     public ExamResultPublishSubjectPK getPk() {
         return pk;
     }
