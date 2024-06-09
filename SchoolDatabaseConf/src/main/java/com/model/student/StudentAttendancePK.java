@@ -21,7 +21,6 @@ import java.util.Date;
 @Builder
 @Embeddable
 public class StudentAttendancePK implements Serializable {
-
     @Column(name = "stu_id")
     private Long stuId;
     @Column(name = "att_date")

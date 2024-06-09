@@ -19,7 +19,7 @@ import java.util.Date;
 public class EmployeeAttendancePK implements Serializable {
 
     @Column(name = "emp_id")
-    private Long stuId;
+    private Long empId;
     @Column(name = "punch_date")
     @Temporal(TemporalType.DATE)
     private Date punchDate;

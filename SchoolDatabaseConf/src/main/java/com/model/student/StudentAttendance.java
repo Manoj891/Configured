@@ -5,6 +5,12 @@ import model.DateConveter;
 
 import javax.persistence.*;
 
+import lombok.*;
+import model.DateConveter;
+
+import javax.persistence.*;
+import java.util.Date;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -13,7 +19,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "student_attendance")
 public class StudentAttendance implements java.io.Serializable {
-
     @EmbeddedId
     private StudentAttendancePK pk;
     @Column(name = "stu_id", insertable = false, updatable = false)
@@ -22,16 +27,22 @@ public class StudentAttendance implements java.io.Serializable {
     private String attDate;
     @Column(name = "status", columnDefinition = "VARCHAR(1)")
     private String status;
-    @Column(name = "in_time", columnDefinition = "TIME", updatable = false)
+    @Column(name = "in_time", columnDefinition = "TIME")
     private String inTime;
     @Column(name = "out_time", columnDefinition = "TIME")
     private String outTime;
-    @Column(name = "enter_by", columnDefinition = "VARCHAR(100)")
+    @Column(name = "enter_by", columnDefinition = "VARCHAR(100)", updatable = false)
     private String enterBy;
-    @Column(name = "enter_date", columnDefinition = "DATETIME")
+    @Column(name = "enter_date", columnDefinition = "DATETIME", updatable = false)
     private String enterDate;
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
+    @Column(name = "update_by", columnDefinition = "VARCHAR(100)", insertable = false)
+    private String updateBy;
+    @Column(name = "update_date", columnDefinition = "DATETIME", insertable = false)
+    private String updateDate;
+    @Column(name = "remark")
+    private String remark;
+    @Setter(lombok.AccessLevel.NONE)
+    @Getter(lombok.AccessLevel.NONE)
     @JoinColumn(name = "stu_id", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private StudentInfo studentInfo;
