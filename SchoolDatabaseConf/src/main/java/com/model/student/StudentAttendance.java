@@ -31,11 +31,11 @@ public class StudentAttendance implements java.io.Serializable {
     private String inTime;
     @Column(name = "out_time", columnDefinition = "TIME")
     private String outTime;
-    @Column(name = "enter_by", columnDefinition = "VARCHAR(100)", updatable = false)
+    @Column(name = "enter_by", columnDefinition = "VARCHAR(10)", updatable = false)
     private String enterBy;
     @Column(name = "enter_date", columnDefinition = "DATETIME", updatable = false)
     private String enterDate;
-    @Column(name = "update_by", columnDefinition = "VARCHAR(100)", insertable = false)
+    @Column(name = "update_by", columnDefinition = "VARCHAR(10)", insertable = false)
     private String updateBy;
     @Column(name = "update_date", columnDefinition = "DATETIME", insertable = false)
     private String updateDate;
