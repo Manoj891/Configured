@@ -50,7 +50,7 @@ public class SubjectGroupDetail implements java.io.Serializable {
     private Integer inOrder;
     @Column(name = "CREDIT_PH", columnDefinition = "FLOAT(5) default 0")
     private Float creditPh;
-    @Column(name = "SUBJECT_CODE_PH", nullable = false, columnDefinition = "VARCHAR(15) ''")
+    @Column(name = "SUBJECT_CODE_PH", nullable = false, columnDefinition = "VARCHAR(15) default ''")
     private String subjectCodePh;
 
     public Long getId() {
