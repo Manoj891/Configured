@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 import model.DateConveter;
 
 @Entity
-@Table(name = "pre_admission", uniqueConstraints = @UniqueConstraint(columnNames = {"STU_NAME", "FATHER_NAME", "MOTHER_NAME", "DATE_OF_BIRTH", "PROVINCE", "DISTRICT", "MUNICIPAL"}))
+@Table(name = "pre_admission")
 public class PreAdmission  {
 
     @Id
