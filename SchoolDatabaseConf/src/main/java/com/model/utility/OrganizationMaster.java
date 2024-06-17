@@ -110,7 +110,8 @@ public class OrganizationMaster implements java.io.Serializable {
 
     @Column(name = "ABOUT_SCHOOL", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String aboutSchool;
-
+    @Column(name = "organization_name")
+    private String organizationName;
     @Column(name = "device_serial_number", length = 15)
     private String deviceSerialNumber;
 
