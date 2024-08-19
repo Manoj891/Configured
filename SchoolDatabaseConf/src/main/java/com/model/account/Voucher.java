@@ -53,7 +53,8 @@ public class Voucher implements java.io.Serializable {
     @Column(name = "REJECT_DATE", updatable = false, insertable = false, nullable = true)
     @Temporal(TemporalType.DATE)
     private Date rejectDate;
-
+    @Column(name = "un_approve_by_date", insertable = false, updatable = false)
+    private String unApproveByDate;
 
     @Column(name = "NARRATION", columnDefinition = "TEXT CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String narration;
