@@ -34,7 +34,7 @@ public class OrganizationUserInfo implements java.io.Serializable {
     private String userType;
     @Column(name = "CASH_ACCOUNT")
     private String cashAccount;
-    @Column(name = "voucher_un_approve", columnDefinition = "varcher(1) default 'N'")
+    @Column(name = "voucher_un_approve", columnDefinition = "varchar(1) default 'N'")
     private String voucherUnApprove;
     @JoinColumn(name = "CASH_ACCOUNT", referencedColumnName = "AC_CODE", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
