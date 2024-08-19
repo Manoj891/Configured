@@ -115,6 +115,8 @@ public class OrganizationMaster implements java.io.Serializable {
     @Column(name = "device_serial_number", length = 15)
     private String deviceSerialNumber;
 
+    @Column(name = "slogan", length = 60)
+    private String slogan;
     @Override
     public String toString() {
         return "\n{\"id\": \"" + id + "\",\"municipal\": \"" + municipal + "\",\"district\": \"" + district + "\",\"wardNo\": \"" + wardNo + "\",\"name\": \"" + name + "\",\"address\": \"" + address + "\",\"province\": \"" + province + "\",\"establishYear\": \"" + establishYear + "\",\"tel\": \"" + tel + "\",\"email\": \"" + email + "\",\"url\": \"" + url + "\"}";
