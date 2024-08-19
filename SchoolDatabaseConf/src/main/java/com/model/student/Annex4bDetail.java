@@ -51,9 +51,9 @@ public class Annex4bDetail implements java.io.Serializable {
     @JoinColumn(name = "MASTER_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Annex4bMaster annex4bMaster;
-    @JoinColumn(name = "SUBJECT", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private SubjectMaster subjectMaster;
+//    @JoinColumn(name = "SUBJECT", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+//    private SubjectMaster subjectMaster;
 
     public Annex4bDetail() {
     }
@@ -193,13 +193,13 @@ public class Annex4bDetail implements java.io.Serializable {
         this.rem7 = rem7;
     }
 
-    public SubjectMaster getSubjectMaster() {
-        return subjectMaster;
-    }
-
-    public void setSubjectMaster(SubjectMaster subjectMaster) {
-        this.subjectMaster = subjectMaster;
-    }
+//    public SubjectMaster getSubjectMaster() {
+//        return subjectMaster;
+//    }
+//
+//    public void setSubjectMaster(SubjectMaster subjectMaster) {
+//        this.subjectMaster = subjectMaster;
+//    }
 
     @Override
     public String toString() {

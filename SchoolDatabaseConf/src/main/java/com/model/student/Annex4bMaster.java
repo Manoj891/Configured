@@ -46,9 +46,9 @@ public class Annex4bMaster implements java.io.Serializable {
     @Column(name = "PASS_PERCENT")
     private String passPercent;
     
-    @JoinColumn(name = "REG_NO", referencedColumnName = "ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private StudentInfo stuInfo;
+//    @JoinColumn(name = "REG_NO", referencedColumnName = "ID", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private StudentInfo stuInfo;
 
     @Fetch(value = FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "annex4bMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
