@@ -51,6 +51,7 @@ public class StuBillingDetail implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date paymentDate;
     @Column(name = "IS_EXTRA", columnDefinition = "VARCHAR(1)")
+    @Index(columnNames = "index_stu_billing_detail_is_extra", name = "is_extra")
     private String isExtra;
     @Column(name = "INVENTORY_ISSUE", columnDefinition = "VARCHAR(1)")
     private String inventoryIssue;

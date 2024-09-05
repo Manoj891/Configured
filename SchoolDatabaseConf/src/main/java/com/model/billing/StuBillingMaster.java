@@ -75,16 +75,16 @@ public class StuBillingMaster implements Serializable {
     @Column(name = "enter_date")
     @Temporal(TemporalType.DATE)
     private Date enterDate;
-    @Column(name = "APPROVE_BY", nullable = true)
+    @Column(name = "APPROVE_BY")
     private String approveBy;
-    @Column(name = "APPROVE_DATE", nullable = true)
+    @Column(name = "APPROVE_DATE")
     @Temporal(TemporalType.DATE)
     private Date approveDate;
-    @Column(name = "BILL_AMOUNT", nullable = true)
+    @Column(name = "BILL_AMOUNT")
     private double billAmount;
     @Column(name = "AUTO_GENERATE", columnDefinition = "VARCHAR(1) DEFAULT 'N'")
     private String autoGenerate;
-    @Column(name = "REMARK", nullable = true)
+    @Column(name = "REMARK")
     private String remark;
     @JoinColumn(name = "FISCAL_YEAR", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(fetch = FetchType.LAZY)
@@ -106,7 +106,10 @@ public class StuBillingMaster implements Serializable {
     private Date createAt = new Date();
     @Column(name = "REFERENCE_ID", nullable = true)
     private String referenceId;
-
+    @Index(columnNames = "index_stu_billing_master_payment_till", name = "payment_till")
+    @Column(name = "payment_till")
+    @Temporal(TemporalType.DATE)
+    private Date paymentTill;
     public StuBillingMaster() {
     }
 
