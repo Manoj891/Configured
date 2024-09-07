@@ -130,6 +130,10 @@ public class StudentInfo implements java.io.Serializable {
 
     @Column(name = "reg_no_link")
     private Long regNoLink;
+    @Column(name = "certificate01", updatable = false, length = 100)
+    private String certificate01;
+    @Column(name = "certificate02", updatable = false, length = 100)
+    private String certificate02;
 
     //    @JoinColumn(name = "RELIGION", referencedColumnName = "ID", insertable = false, updatable = false)
 //    @ManyToOne(optional = false, fetch = FetchType.LAZY)
