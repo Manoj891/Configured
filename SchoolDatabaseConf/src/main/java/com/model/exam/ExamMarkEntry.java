@@ -31,6 +31,8 @@ public class ExamMarkEntry {
     private Float thOm;
     @Column(name = "PR_OM", columnDefinition = "float(5,3)  default 0")
     private Float prOm;
+    @Column(name = "extra_activity", columnDefinition = "varchar(1) default ''")
+    private String extraActivity;
 
     @Column(name = "t1t", columnDefinition = "float default 0")
     private Float t1t;
