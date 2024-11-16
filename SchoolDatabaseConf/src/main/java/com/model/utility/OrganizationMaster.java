@@ -117,6 +117,8 @@ public class OrganizationMaster implements java.io.Serializable {
 
     @Column(name = "slogan", length = 60)
     private String slogan;
+    @Column(name = "bill_bal_total", columnDefinition = "varchar(1) default 'D'")
+    private String billBalTotal;
     @Override
     public String toString() {
         return "\n{\"id\": \"" + id + "\",\"municipal\": \"" + municipal + "\",\"district\": \"" + district + "\",\"wardNo\": \"" + wardNo + "\",\"name\": \"" + name + "\",\"address\": \"" + address + "\",\"province\": \"" + province + "\",\"establishYear\": \"" + establishYear + "\",\"tel\": \"" + tel + "\",\"email\": \"" + email + "\",\"url\": \"" + url + "\"}";
