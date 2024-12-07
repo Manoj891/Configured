@@ -21,8 +21,7 @@ public class StudentSaved {
         try {
             repository.save(obj);
             ClassTransfer transfer = new ClassTransfer();
-            transfer.setPk(new ClassTransferPK(obj.getId(), obj.getAcademicYear()));
-            transfer.setClassId(obj.getClassId());
+            transfer.setPk(new ClassTransferPK(obj.getId(), obj.getAcademicYear(),obj.getClassId()));
             transfer.setProgram(obj.getProgram());
             transfer.setRollNo(obj.getRollNo());
             transfer.setSubjectGroup(obj.getSubjectGroup());
