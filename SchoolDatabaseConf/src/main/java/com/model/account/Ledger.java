@@ -24,7 +24,6 @@ public class Ledger implements Serializable {
     @Id
     @Column(name = "ID")
     private String id;
-    @Index(columnNames = "index_ledger_ac_code", name = "ac_code")
     @Column(name = "AC_CODE")
     private String acCode;
     @Column(name = "VOUCHER_NO")
