@@ -5,40 +5,31 @@
  */
 package com.model.student;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@Getter
 public class ClassTransferPK implements Serializable {
 
     @Column(name = "ACADEMIC_YEAR")
     private long academicYear;
     @Column(name = "STUDENT_ID")
     private long studentId;
+    @Column(name = "CLASS_ID")
+    private long classId;
 
     public ClassTransferPK() {
     }
 
-    public ClassTransferPK(long studentId, long academicYear) {
+    public ClassTransferPK(long studentId, long academicYear, long classId) {
         this.studentId = studentId;
         this.academicYear = academicYear;
+        this.classId = classId;
     }
 
-    public long getAcademicYear() {
-        return academicYear;
-    }
-
-    public void setAcademicYear(long academicYear) {
-        this.academicYear = academicYear;
-    }
-
-    public long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(long studentId) {
-        this.studentId = studentId;
-    }
 
 }
