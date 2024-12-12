@@ -12,7 +12,8 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "certificate_data", uniqueConstraints = {
-        @UniqueConstraint(name = "certificate_data_unique", columnNames = {"reg_no", "board_name"})
+        @UniqueConstraint(name = "certificate_data_unique", columnNames = {"reg_no", "board_name"}),
+        @UniqueConstraint(name = "certificate_data_campus_reg_no", columnNames = {"campus_reg_no"})
 })
 public class CertificateData {
     @Id
