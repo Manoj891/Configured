@@ -11,9 +11,10 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "certificate_data", uniqueConstraints = {
-        @UniqueConstraint(name = "certificate_data_unique", columnNames = {"reg_no", "board_name"}),
-        @UniqueConstraint(name = "certificate_data_campus_reg_no", columnNames = {"campus_reg_no"})
+@Table(name = "certificate_data", indexes = {
+        @Index(name = "index_certificate_data_serial_number", unique = true, columnList = "serial_number"),
+        @Index(name = "index_certificate_data_campus_reg_no", unique = true, columnList = "campus_reg_no"),
+        @Index(name = "index_certificate_data_board_reg_no", unique = true, columnList = "reg_no,board_name")
 })
 public class CertificateData {
     @Id
@@ -27,7 +28,10 @@ public class CertificateData {
     private String title;
     @Column(name = "name", length = 100)
     private String name;
-
+    @Column(name = "sn")
+    private int sn;
+    @Column(name = "serial_number", length = 20)
+    private String serialNumber;
     @Column(name = "fathers_name", length = 100)
     private String fathersName;
     @Column(name = "district", length = 100)
