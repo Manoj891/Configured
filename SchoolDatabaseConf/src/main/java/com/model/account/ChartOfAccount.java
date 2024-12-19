@@ -32,7 +32,7 @@ public class ChartOfAccount implements java.io.Serializable {
     private String unit;
     @Column(name = "rate")
     private Double rate;
-    @Column(name = "updated_by")
+    @Column(name = "updated_by",length = 30)
     private String updatedBy;
     @Column(name = "updated_date")
     @Temporal(TemporalType.TIMESTAMP)
