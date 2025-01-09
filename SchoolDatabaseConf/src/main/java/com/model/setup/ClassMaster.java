@@ -16,6 +16,8 @@ public class ClassMaster implements java.io.Serializable {
     private String name;
     @Column(name = "level")
     private String level;
+    @Column(name = "degree_name")
+    private String degreeName;
     public ClassMaster() {
     }
 
