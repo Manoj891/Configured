@@ -1,19 +1,14 @@
 package com.model.student;
 
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import model.DateConveter;
 
 @Entity
-@Table(name = "student_info", uniqueConstraints = @UniqueConstraint(columnNames = {"ROLL_NO", "SECTION", "ACADEMIC_YEAR", "PROGRAM", "CLASS_ID"}, name = "ROLL_NO"))
+@Table(name = "student_info", indexes = {
+        @Index(name = "index_student_info_roll_no", columnList = "academic_year,program,class_id,subject_group,section,roll_no", unique = true)
+})
 public class StudentInfo implements java.io.Serializable {
 
     @Id
@@ -750,7 +745,6 @@ public class StudentInfo implements java.io.Serializable {
     public void setRegNoLink(Long regNoLink) {
         this.regNoLink = regNoLink;
     }
-
 
 
     public String getBoardRegdNo() {

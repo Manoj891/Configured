@@ -14,7 +14,8 @@ public class ClassMaster implements java.io.Serializable {
     private Long id;
     @Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String name;
-
+    @Column(name = "level")
+    private String level;
     public ClassMaster() {
     }
 

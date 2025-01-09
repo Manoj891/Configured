@@ -14,6 +14,8 @@ public class ProgramMaster implements java.io.Serializable {
     private Long id;
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci")
     private String name;
+    @Column(name = "program_name")
+    private String programName;
 
     public ProgramMaster() {
     }
