@@ -46,6 +46,8 @@ public class CertificateData {
     private String level;
     @Column(name = "degree", length = 100)
     private String degree;
+    @Column(name = "program_name", length = 100)
+    private String programName;
     @Column(name = "join_year", length = 4)
     private int joinYear;
     @Column(name = "passed_year", length = 4)
