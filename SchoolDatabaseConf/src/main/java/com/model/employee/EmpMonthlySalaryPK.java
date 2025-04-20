@@ -1,9 +1,12 @@
 
 package com.model.employee;
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
 @Embeddable
+@EqualsAndHashCode
 public class EmpMonthlySalaryPK implements Serializable {
 @Column(name = "EMP_ID")
 private long empId;

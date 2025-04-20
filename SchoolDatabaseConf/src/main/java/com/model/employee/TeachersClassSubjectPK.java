@@ -5,11 +5,14 @@
  */
 package com.model.employee;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class TeachersClassSubjectPK implements Serializable {
 
     @Column(name = "TEACHER")

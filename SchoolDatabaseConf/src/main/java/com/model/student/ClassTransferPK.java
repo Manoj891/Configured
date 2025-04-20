@@ -5,6 +5,7 @@
  */
 package com.model.student;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 @Getter
+@EqualsAndHashCode
 public class ClassTransferPK implements Serializable {
 
     @Column(name = "ACADEMIC_YEAR")

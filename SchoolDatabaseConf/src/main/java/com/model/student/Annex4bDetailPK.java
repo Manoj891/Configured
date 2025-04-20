@@ -5,11 +5,14 @@
  */
 package com.model.student;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class Annex4bDetailPK implements Serializable {
 
     @Column(name = "MASTER_ID")

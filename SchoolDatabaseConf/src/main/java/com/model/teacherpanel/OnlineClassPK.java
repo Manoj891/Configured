@@ -5,11 +5,14 @@
  */
 package com.model.teacherpanel;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class OnlineClassPK implements Serializable {
 
     @Column(name = "ACADEMIC_YEAR", nullable = false)

@@ -5,11 +5,14 @@
  */
 package com.model.utility;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class MenuUserAccessPK implements Serializable {
 
     @Column(name = "MENU")

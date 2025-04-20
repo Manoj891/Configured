@@ -20,6 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Embeddable
+@EqualsAndHashCode
 public class StudentAttendancePK implements Serializable {
     @Column(name = "stu_id")
     private Long stuId;

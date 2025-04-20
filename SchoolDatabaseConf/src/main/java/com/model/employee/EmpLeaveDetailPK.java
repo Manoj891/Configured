@@ -5,6 +5,8 @@
  */
 package com.model.employee;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Embeddable
+@EqualsAndHashCode
 public class EmpLeaveDetailPK implements Serializable {
 
     @Column(name = "LEAVE_DATE")

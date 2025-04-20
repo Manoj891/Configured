@@ -16,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Embeddable
+@EqualsAndHashCode
 public class EmployeeAttendancePK implements Serializable {
 
     @Column(name = "emp_id")

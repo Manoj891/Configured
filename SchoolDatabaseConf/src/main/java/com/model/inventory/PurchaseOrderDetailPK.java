@@ -5,11 +5,14 @@
  */
 package com.model.inventory;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class PurchaseOrderDetailPK implements Serializable {
 
     @Column(name = "ORDER_NO")

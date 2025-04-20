@@ -3,6 +3,7 @@ package com.model.student;
 import java.util.Date;
 import javax.persistence.*;
 
+import com.model.setup.*;
 import model.DateConveter;
 
 @Entity
@@ -130,30 +131,31 @@ public class StudentInfo implements java.io.Serializable {
     @Column(name = "certificate02", updatable = false, length = 100)
     private String certificate02;
 
-    //    @JoinColumn(name = "RELIGION", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private ReligionMaster religionMaster;
-//
-//    @JoinColumn(name = "CAST_ETHNICITY", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private CastEthnicityMaster castEthnicityMaster;
-//
-//    @JoinColumn(name = "PROGRAM", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private ProgramMaster programMaster;
-//    
-//    @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private ClassMaster classMaster;
-//    
-//    @JoinColumn(name = "ACADEMIC_YEAR", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private AcademicYear academicYearMaster;
-//    
-//    @JoinColumn(name = "SUBJECT_GROUP", referencedColumnName = "ID", insertable = false, updatable = false)
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-//    private SubjectGroup subjectGroupMaster;
-//    
+    @JoinColumn(name = "RELIGION", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private ReligionMaster religionMaster;
+
+    @JoinColumn(name = "CAST_ETHNICITY", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private CastEthnicityMaster castEthnicityMaster;
+
+    @JoinColumn(name = "PROGRAM", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private ProgramMaster programMaster;
+
+    @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private ClassMaster classMaster;
+
+    @JoinColumn(name = "ACADEMIC_YEAR", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private AcademicYear academicYearMaster;
+
+    @JoinColumn(name = "SUBJECT_GROUP", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private SubjectGroup subjectGroupMaster;
+
+    //
     public String getAdmissionYear() {
         try {
             if (academicYear == null) {

@@ -5,11 +5,14 @@
  */
 package com.model.setup;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@EqualsAndHashCode
 public class BusStationTimePK implements Serializable {
 
     @Column(name = "BUS")
