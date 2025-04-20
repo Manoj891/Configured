@@ -67,7 +67,10 @@ public class ClassTransfer {
     @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private StudentInfo studentInfo;
-
+    @Column(name = "update_by",length = 30)
+    private String updateBy;
+    @Column(name = "update_date",length = 20)
+    private String updateDate;
     public ClassTransfer() {
     }
 
