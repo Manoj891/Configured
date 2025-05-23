@@ -1,24 +1,21 @@
 package com.model.utility;
 
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "ad_bs_calender")
+@Table(name = "ad_bs_calender", indexes = {
+        @Index(name = "index_ad_bs_calender_bs_date", columnList = "bs_date", unique = true)
+})
 public class AdBsCalender implements java.io.Serializable {
 
     @Id
-    @Column(name = "AD_DATE")
+    @Column(name = "ad_date")
     @Temporal(TemporalType.DATE)
     private Date adDate;
-    @Column(name = "BS_DATE", updatable = false, unique = true)
+    @Column(name = "bs_date", length = 10)
     private String bsDate;
-    @Column(name = "DAY", columnDefinition = "VARCHAR(3)", updatable = false)
+    @Column(name = "day", length = 3)
     private String day;
     @Column(name = "SCHOOL_HOLYDAY", columnDefinition = "VARCHAR(1) DEFAULT 'N'")
     private String schoolHolyday;
