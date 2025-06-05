@@ -23,4 +23,6 @@ public class BiometricDeviceMap {
     private Long empId;
     @Column(name = "device_id")
     private Long deviceId;
+    @Column(name = "device_branch")
+    private Integer deviceBranch;
 }
