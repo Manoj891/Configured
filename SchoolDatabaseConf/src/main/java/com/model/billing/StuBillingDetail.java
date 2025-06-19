@@ -20,6 +20,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.model.student.StudentInfo;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import model.DateConveter;
 import org.hibernate.annotations.Index;
 
@@ -65,7 +69,11 @@ public class StuBillingDetail implements Serializable {
     @JoinColumn(name = "BILL_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private BillMaster billMaster;
-
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
+    @JoinColumn(name = "REG_NO", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private StudentInfo studentInfo;
     public StuBillingDetail() {
     }
 
