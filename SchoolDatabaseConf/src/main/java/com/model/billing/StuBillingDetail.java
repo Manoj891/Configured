@@ -6,26 +6,15 @@
 package com.model.billing;
 
 import com.model.setup.BillMaster;
-
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import com.model.student.StudentInfo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import model.DateConveter;
 import org.hibernate.annotations.Index;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "stu_billing_detail")
